@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "whereis", "src\whereis\whereis.csproj", "{FAEB96AA-01E0-463F-99EB-147946C11A72}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "whereisservice", "src\whereisservice\whereisservice.csproj", "{B61AD978-B90C-4F0F-8AB8-84A55C28BB0E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6D375ECC-534F-4561-BA1E-8462C22E5824}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAEB96AA-01E0-463F-99EB-147946C11A72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAEB96AA-01E0-463F-99EB-147946C11A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAEB96AA-01E0-463F-99EB-147946C11A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAEB96AA-01E0-463F-99EB-147946C11A72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B61AD978-B90C-4F0F-8AB8-84A55C28BB0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B61AD978-B90C-4F0F-8AB8-84A55C28BB0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B61AD978-B90C-4F0F-8AB8-84A55C28BB0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B61AD978-B90C-4F0F-8AB8-84A55C28BB0E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5C0FE0F7-D9CF-44E4-99DC-F537FA78C481}
+	EndGlobalSection
+EndGlobal
