@@ -11,7 +11,10 @@ using var host = Host.CreateDefaultBuilder(args)
 
         services.AddMemoryCache();
 
+        services.AddSingleton<DateTimeService>();
         services.AddSingleton<FileSystemWatcherService>();
+        services.AddSingleton<IndexingService>();
+
         services.AddHostedService<WindowsBackgroundService>();
     })
     .Build();

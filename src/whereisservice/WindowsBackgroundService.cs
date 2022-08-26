@@ -5,16 +5,22 @@ namespace WhereIsService;
 internal sealed class WindowsBackgroundService : BackgroundService
 {
     private readonly IOptionsMonitor<Settings> _settings;
+    private readonly DateTimeService _dateTimeService;
     private readonly FileSystemWatcherService _fileSystemWatcherService;
+    private readonly IndexingService _indexingService;
     private readonly ILogger _logger;
 
     public WindowsBackgroundService(
         IOptionsMonitor<Settings> settings,
+        DateTimeService dateTimeService,
         FileSystemWatcherService fileSystemWatcherService,
+        IndexingService indexingService,
         ILoggerFactory loggerFactory)
     {
         _settings = settings;
+        _dateTimeService = dateTimeService;
         _fileSystemWatcherService = fileSystemWatcherService;
+        _indexingService = indexingService;
         _logger = loggerFactory.CreateLogger("WhereIsService");
     }
 
@@ -26,7 +32,13 @@ internal sealed class WindowsBackgroundService : BackgroundService
         {
             _fileSystemWatcherService.InitFileSystemWatchers(
                 watchFolders: _settings.CurrentValue.WatchFolders,
-                onChange: (type, e) => _logger.LogDebug(new EventId(2000, "File Change"), "{Type}: {FilePath}", type, e.FullPath));
+                onChange: (type, e) => {
+                    _logger.LogDebug(new EventId(2000, "File Change"), "{Type}: {FilePath}", type, e.FullPath);
+
+                    var fileInfo = new FileInfo(e.FullPath);
+
+                    _indexingService.UpdateFile(File.From(fileInfo));
+                });
 
             while (!cancellationToken.IsCancellationRequested)
             {
