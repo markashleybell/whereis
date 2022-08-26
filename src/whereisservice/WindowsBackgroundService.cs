@@ -3,7 +3,7 @@ using Microsoft.Extensions.Options;
 
 namespace WhereIsService;
 
-public sealed class WindowsBackgroundService : BackgroundService
+internal sealed class WindowsBackgroundService : BackgroundService
 {
     private readonly IOptionsMonitor<Settings> _settings;
     private readonly FileSystemWatcherService _fileSystemWatcherService;
