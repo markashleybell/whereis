@@ -1,6 +1,6 @@
 namespace WhereIsService;
 
-public class IndexingService : IDisposable
+public class FileSystemWatcherService : IDisposable
 {
     private readonly Stack<FileSystemWatcher> _watchers = new();
 

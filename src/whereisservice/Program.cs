@@ -8,7 +8,7 @@ using var host = Host.CreateDefaultBuilder(args)
         LoggerProviderOptions.RegisterProviderOptions<EventLogSettings, EventLogLoggerProvider>(services);
 
         services.Configure<Settings>(context.Configuration.GetSection("Settings"));
-        services.AddSingleton<IndexingService>();
+        services.AddSingleton<FileSystemWatcherService>();
         services.AddHostedService<WindowsBackgroundService>();
     })
     .ConfigureLogging((context, logging) => logging.AddConfiguration(context.Configuration.GetSection("Logging")))

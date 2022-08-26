@@ -5,12 +5,12 @@ namespace WhereIsService;
 public sealed class WindowsBackgroundService : BackgroundService
 {
     private readonly IOptionsMonitor<Settings> _settings;
-    private readonly IndexingService _service;
+    private readonly FileSystemWatcherService _service;
     private readonly ILogger<WindowsBackgroundService> _logger;
 
     public WindowsBackgroundService(
         IOptionsMonitor<Settings> settings,
-        IndexingService service,
+        FileSystemWatcherService service,
         ILogger<WindowsBackgroundService> logger) =>
         (_settings, _service, _logger) = (settings, service, logger);
 
