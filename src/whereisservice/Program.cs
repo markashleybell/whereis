@@ -3,7 +3,7 @@ using Microsoft.Extensions.Logging.Configuration;
 using Microsoft.Extensions.Logging.EventLog;
 
 using var host = Host.CreateDefaultBuilder(args)
-    .UseWindowsService(options => options.ServiceName = "whereis Indexing Service")
+    .UseWindowsService(options => options.ServiceName = "WhereIs Indexing Service")
     .ConfigureServices((context, services) => {
         LoggerProviderOptions.RegisterProviderOptions<EventLogSettings, EventLogLoggerProvider>(services);
 
@@ -11,7 +11,6 @@ using var host = Host.CreateDefaultBuilder(args)
         services.AddSingleton<FileSystemWatcherService>();
         services.AddHostedService<WindowsBackgroundService>();
     })
-    .ConfigureLogging((context, logging) => logging.AddConfiguration(context.Configuration.GetSection("Logging")))
     .Build();
 
 await host.RunAsync();
